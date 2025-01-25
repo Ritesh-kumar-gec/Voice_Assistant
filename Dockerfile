@@ -6,6 +6,8 @@ WORKDIR /app
 # Copy the application code into the container
 COPY . /app
 
+RUN apt-get update && apt-get install -y gcc libasound-dev portaudio19-dev
+
 # Install Python dependencies
 RUN pip install -r requirements.txt
 

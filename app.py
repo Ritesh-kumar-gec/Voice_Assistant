@@ -8,6 +8,8 @@ from logger import CustomLogger
 from prompts.main_prompt import main_prompt, main_bot_examples
 from langchain.schema import SystemMessage, HumanMessage
 
+import os
+
 # Initialize Flask app
 app = Flask(__name__)
 logger = CustomLogger().get_logger()
@@ -15,7 +17,7 @@ logger = CustomLogger().get_logger()
 # Global states
 current_functionality = None
 conversation_context = {}
-groq_api_key = None  # Store the API key globally
+groq_api_key = None # Store the API key globally
 
 # Modules
 qna_module = None

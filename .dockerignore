@@ -9,6 +9,8 @@ logs/
 # Virtual environment
 venv/
 .env/
+voice
+voice/
 
 # System files
 .DS_Store
