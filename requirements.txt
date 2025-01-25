@@ -10,3 +10,4 @@ pyttsx3
 pyaudio 
 yt-dlp 
 gunicorn
+py-espeak-ng
