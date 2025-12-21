@@ -17,14 +17,14 @@ class WeatherModule:
 
         self.llm = ChatGroq(
             api_key=api_key,
-            model="llama3-8b-8192",
-            temperature=0.7
+            model="llama-3.1-8b-instant",
+            temperature=0.1
         )
+
         # Initialize logger
         self.logger = CustomLogger().get_logger()
         self.logger.info("WeatherModule initialized.")
         
-
 
     @staticmethod
     def fetch_weather(location):

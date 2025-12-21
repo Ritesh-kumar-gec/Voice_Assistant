@@ -1,6 +1,6 @@
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
-qna_prompy_template= PromptTemplate(
+qna_prompt_template= PromptTemplate(
             template= """
     You are a friendly, intelligent, and polite assistant capable of answering general questions on a wide variety of topics. 
 

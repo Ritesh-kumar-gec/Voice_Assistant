@@ -36,3 +36,5 @@ secrets.yaml
 .vscode/
 .idea/
 *.iml
+
+.ipynbcheckpoints/

@@ -45,7 +45,7 @@ def main_prompt(user_input, few_shot_text):
     - reminder: For creating reminders, such as tasks, appointments, or scheduled events.
 
     ### Rules:
-    1. Only output the intent as one of the following: **qna**, **music**, **weather**, **reminder**, or **unknown**.
+    1. Only output the intent as one of the following: qna, music, weather, reminder, or unknown.
     2. Do not provide any explanation, interpretation, or additional details.
     3. If the user's input doesn't match any of the predefined intents, respond with **unknown**.
 

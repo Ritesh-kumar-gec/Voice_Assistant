@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
+from langchain_groq import ChatGroq
 from modules.qna import QnAModule
 from modules.music import MusicModule
 from modules.weather import WeatherModule
@@ -6,7 +7,7 @@ from modules.reminder import ReminderModule
 from modules.speech import SpeechModule
 from logger import CustomLogger
 from prompts.main_prompt import main_prompt, main_bot_examples
-from langchain.schema import SystemMessage, HumanMessage
+from langchain_core.messages import SystemMessage, HumanMessage
 
 import os
 
@@ -94,11 +95,13 @@ def process_input():
 
         # Detect intent for the first input
         intent = detect_intent(user_input)
+        print(f"[DEBUG] Intent Detected: {intent}")
+        
         if intent in ["qna", "music", "weather", "reminder"]:
             current_functionality = intent
             return process_input()  # Re-route the input to the active functionality
-
-        return jsonify({"response": "I'm sorry, I couldn't understand that. Could you try rephrasing?"})
+        else:
+            return jsonify({"response": "I'm sorry, I couldn't understand that. Could you try rephrasing?"})
 
     except Exception as e:
         logger.error(f"Error processing input: {e}")
@@ -194,7 +197,13 @@ def detect_intent(user_input):
                 SystemMessage(content="You are an intent detection assistant."),
                 HumanMessage(content=prompt)
             ]
-        response = qna_module.llm.invoke(messages)
+        
+        llm_intent = ChatGroq(
+            api_key=groq_api_key,
+            model="llama-3.1-8b-instant",
+            temperature=0.3
+        )
+        response = llm_intent.invoke(messages)
         intent_detected = response.content.strip().lower()
         print(f"[DEBUG] Detected Intent: {intent_detected}")
         return intent_detected

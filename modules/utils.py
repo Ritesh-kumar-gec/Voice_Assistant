@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from langchain.schema import SystemMessage, HumanMessage
+from langchain_core.messages import HumanMessage, AIMessage
 from prompts.location_prompt import location_extraction_prompt, few_shot_examples
 
 @staticmethod

@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from langchain.schema import SystemMessage, HumanMessage
+from langchain_core.messages import SystemMessage, HumanMessage
 import yt_dlp, os
 import vlc
 from logger import CustomLogger  # Import CustomLogger
@@ -18,7 +18,7 @@ class MusicModule:
         # Initialize the Groq LLM for music query processing
         self.llm_music = ChatGroq(
             api_key=api_key,
-            model="llama3-8b-8192",
+            model="llama-3.1-8b-instant",
             temperature=0.4
         )
 
