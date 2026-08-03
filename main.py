@@ -4,6 +4,7 @@ import logging
 if __name__ == "__main__":
     # Print a message to indicate where the app is running
     host = "0.0.0.0"  # Define the host
+    #host="127.0.0.1"    # for local development
     port = 5006        # Define the port
 
     print(f"Starting Flask app on http://{host}:{port}")
