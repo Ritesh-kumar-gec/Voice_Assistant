@@ -23,7 +23,7 @@ class QnAModule:
         # Initialize Groq LLM
         self.llm = ChatGroq(
             api_key=api_key,
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-20b",
             temperature=0.1,
             max_tokens=None,
             timeout=None,

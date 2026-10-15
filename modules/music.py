@@ -18,7 +18,7 @@ class MusicModule:
         # Initialize the Groq LLM for music query processing
         self.llm_music = ChatGroq(
             api_key=api_key,
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-20b",
             temperature=0.4
         )
 

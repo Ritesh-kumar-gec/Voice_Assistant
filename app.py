@@ -200,8 +200,8 @@ def detect_intent(user_input):
         
         llm_intent = ChatGroq(
             api_key=groq_api_key,
-            model="llama-3.1-8b-instant",
-            temperature=0.3
+            model="openai/gpt-oss-20b",
+            temperature=0
         )
         response = llm_intent.invoke(messages)
         intent_detected = response.content.strip().lower()
